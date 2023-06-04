@@ -8,10 +8,17 @@
 }
 
 :root {
+  --base-unit: 16;
+
   --color-light-default: #ffffff;
   --color-dark-default: #0e0f10;
   --color-placeholder: #7e8491;
-  --base-unit: 16;
+  --color-primary: #05bd7a;
+  --color-dark-border: #181a1b;
+  --color-light-border: #f1f3f3;
+  --color-dark-text: #0e100f;
+  --color-light-overlay: rgba(15, 16, 15, 0.48);
+  --color-dark-overlay: rgba(0, 0, 0, 0.64);
 }
 
 .bg--dark {
@@ -22,10 +29,18 @@
   background: var(--color-light-default);
 }
 
+.overlay--dark {
+  background: var(--color-dark-overlay);
+}
+
+.overlay--light {
+  background: var(--color-light-overlay);
+}
+
 .text--dark {
   color: var(--color-light-default);
 }
 
 .text--light {
-  color: var(--color-dark-default);
+  color: var(--color-dark-text);
 }

@@ -1,0 +1,11 @@
+._root {
+  font-weight: 500;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  height: 3rem;
+}
+
+.label {
+  margin-left: 0.5rem;
+}

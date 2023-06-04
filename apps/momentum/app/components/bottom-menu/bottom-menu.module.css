@@ -1,0 +1,48 @@
+.root {
+  height: 22.5rem;
+  padding: 1rem;
+  border-radius: 1rem 1rem 0 0;
+  margin-top: calc(100vh - 22.5rem);
+  transform: translateY(100%);
+  position: fixed;
+  width: 100%;
+  transition: all 225ms ease;
+  transition-timing-function: ease-in-out;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+}
+
+.opened {
+  visibility: visible;
+  transform: translateY(0%);
+  transition: all 225ms ease;
+  transition-timing-function: ease-in-out;
+}
+
+.drag_down {
+  width: 3rem;
+  height: 0.25rem;
+  margin: 0 auto;
+  border-radius: 0.125rem;
+}
+
+.drag_down--dark {
+  background: var(--color-light-default);
+}
+
+.drag_down--light {
+  background: var(--color-light-border);
+}
+
+.options {
+  margin: 1.25rem 0;
+}

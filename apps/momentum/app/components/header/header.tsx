@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { FC } from 'react';
 import { useTheme } from '../../theme';
 import { cx } from '../../utils';
-import { Avatar } from '../Avatar/avatar';
+import { Avatar } from '../avatar/avatar';
 
 import styles from './header.module.css';
 
@@ -24,7 +24,12 @@ export const Header: FC<HeaderProps> = ({
         <p className={cx(styles.header__title, `text--${mode}`)}>{title}</p>
       </div>
       <div className={styles.header__bell}>
-        <Image src="/assets/bell.svg" width={48} height={48} alt="bell" />
+        <Image
+          src={`/assets/bell-${mode}.svg`}
+          width={48}
+          height={48}
+          alt="bell"
+        />
       </div>
     </header>
   );
