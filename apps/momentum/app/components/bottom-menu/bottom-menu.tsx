@@ -26,11 +26,14 @@ const MenuOptions: MenuOption[] = [
 
 export const BottomMenu = ({ onClose, opened }: BottomMenuProps) => {
   const { mode } = useTheme();
+
+  const slideState = opened ? styles.opened : styles.closed;
+
   return (
-    <div className={cx(styles.overlay, `overlay--${mode}`)} onClick={onClose}>
-      <div
-        className={cx(styles.root, `bg--${mode}`, { [styles.opened]: opened })}
-      >
+    <div
+      className={cx({ [styles.overlay]: opened }, styles[`overlay--${mode}`])}
+    >
+      <div className={cx(styles.root, `bg--${mode}`, slideState)}>
         <div
           className={cx(styles.drag_down, styles[`drag_down--${mode}`])}
           onClick={onClose}

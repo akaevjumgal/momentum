@@ -1,0 +1,14 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1.25rem 0 1.25rem;
+}
+
+.__border--dark {
+  border-bottom: 1px solid var(--color-dark-border);
+}
+
+.__border--light {
+  border-bottom: 1px solid var(--color-light-border);
+}

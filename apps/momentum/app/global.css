@@ -19,6 +19,8 @@
   --color-dark-text: #0e100f;
   --color-light-overlay: rgba(15, 16, 15, 0.48);
   --color-dark-overlay: rgba(0, 0, 0, 0.64);
+  --color-dark-dimmed: #31343a;
+  --color-light-dimmed: #c0c3c9;
 }
 
 .bg--dark {

@@ -1,3 +1,7 @@
+'use client';
+import { WeekView } from './components/week-view/week-view';
+import { useTheme } from './theme';
+
 interface Todo {
   id: string;
   title: string;
@@ -27,5 +31,14 @@ interface Todo {
 // ];
 
 export default function Page() {
-  return <div>Something</div>;
+  const { mode } = useTheme();
+  return (
+    <div>
+      <WeekView />
+      <div
+        style={{ height: 'calc(100vh - 10.5rem);' }}
+        className={`bg--${mode}`}
+      />
+    </div>
+  );
 }
