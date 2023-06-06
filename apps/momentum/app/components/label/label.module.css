@@ -1,0 +1,40 @@
+.root {
+  font-weight: 500;
+  color: var(--color-muted);
+  font-size: 0.625rem;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  display: flex;
+  align-items: center;
+}
+
+.__muted--light {
+  color: var(--color-light-muted);
+}
+
+.__muted--dark {
+  color: var(--color-dark-muted);
+}
+
+.__square {
+  width: 0.5rem;
+  height: 0.5rem;
+  display: block;
+  border-radius: 0.125rem;
+  margin-right: 0.25rem;
+}
+
+.__primary {
+  border: 0.063rem solid var(--color-primary);
+}
+
+.__orange {
+  border: 0.063rem solid var(--color-orange);
+}
+
+.__ocean {
+  border: 0.063rem solid var(--color-ocean);
+}
+
+.__scarlet {
+  border: 0.063rem solid var(--color-scarlet);
+}

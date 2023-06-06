@@ -1,0 +1,15 @@
+.root {
+  height: 100%;
+}
+
+.__line {
+  padding: 0 1.25rem;
+}
+
+.__line--light {
+  border-bottom: 0.063rem solid var(--color-light-border);
+}
+
+.__line--dark {
+  border-bottom: 0.063rem solid var(--color-dark-border);
+}

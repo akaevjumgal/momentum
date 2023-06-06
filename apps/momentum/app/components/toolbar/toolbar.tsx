@@ -23,8 +23,10 @@ export const Toolbar = () => {
         <IconButton iconUrl="/assets/search.svg" color="transparent" />
       </div>
 
-      <IconButton iconUrl="/assets/plus.svg" iconSize={24} />
-      <BottomMenu opened={isMenuOpen} onClose={() => setMenuOpen(false)} />
+      <div>
+        <IconButton iconUrl="/assets/plus.svg" iconSize={24} />
+        <BottomMenu opened={isMenuOpen} onClose={() => setMenuOpen(false)} />
+      </div>
     </footer>
   );
 };

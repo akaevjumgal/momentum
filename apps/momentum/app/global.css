@@ -21,6 +21,13 @@
   --color-dark-overlay: rgba(0, 0, 0, 0.64);
   --color-dark-dimmed: #31343a;
   --color-light-dimmed: #c0c3c9;
+  --color-light-checkbox: #f4f6f6;
+  --color-dark-checkbox: #131416;
+  --color-dark-muted: #4d525b;
+  --color-light-muted: #7e8491;
+  --color-orange: #dda73c;
+  --color-scarlet: #cd5037;
+  --color-ocean: #2e72b8;
 }
 
 .bg--dark {
