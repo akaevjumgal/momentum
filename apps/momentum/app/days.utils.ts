@@ -7,6 +7,7 @@ dayjs.extend(timezone);
 dayjs.extend(weekday);
 
 export const date = dayjs;
+export type DateType = dayjs.Dayjs;
 
 export interface TaskDay {
   day: string;

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { HTMLAttributes, PropsWithChildren } from 'react';
+import { ChangeEventHandler, HTMLAttributes } from 'react';
 
 import styles from './menu-item.module.css';
 import { cx } from '../../utils';
@@ -11,6 +11,8 @@ interface MenuItemProps extends HTMLAttributes<HTMLLIElement> {
   iconUrl?: string;
   markable?: boolean;
   label?: LabelProps;
+  checked?: boolean;
+  onCheck?: ChangeEventHandler<HTMLInputElement>;
 }
 
 export const MenuItem = ({
@@ -19,13 +21,24 @@ export const MenuItem = ({
   markable = false,
   className,
   label,
+  checked,
+  onCheck,
   ...props
-}: PropsWithChildren<MenuItemProps>) => {
+}: MenuItemProps) => {
   const { mode } = useTheme();
 
   return (
-    <li className={cx(styles.root, className)} {...props}>
-      {markable && <Checkbox style={{ marginRight: '0.75rem' }} />}
+    <li
+      className={cx(styles.root, styles[`__line--${mode}`], className)}
+      {...props}
+    >
+      {markable && (
+        <Checkbox
+          checked={checked}
+          onChange={onCheck}
+          style={{ marginRight: '0.75rem' }}
+        />
+      )}
       {iconUrl && <Image src={iconUrl} alt={iconUrl} width={24} height={24} />}
       <p className={cx(styles.label, `text--${mode}`)}>{children}</p>
       {label && (

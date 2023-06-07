@@ -1,9 +1,9 @@
-import { HTMLAttributes } from 'react';
+import { InputHTMLAttributes } from 'react';
 import { useTheme } from '../../theme';
 import { cx } from '../../utils';
 import styles from './checkbox.module.css';
 
-type CheckboxProps = HTMLAttributes<HTMLInputElement>;
+type CheckboxProps = InputHTMLAttributes<HTMLInputElement>;
 
 export const Checkbox = ({ ...props }: CheckboxProps) => {
   const { mode } = useTheme();

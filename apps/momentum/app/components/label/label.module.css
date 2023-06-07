@@ -38,3 +38,7 @@
 .__scarlet {
   border: 0.063rem solid var(--color-scarlet);
 }
+
+.__default {
+  border: 0.063rem solid var(--color-uncategorized);
+}

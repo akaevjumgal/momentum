@@ -34,13 +34,16 @@ export const BottomMenu = ({ onClose, opened }: BottomMenuProps) => {
       className={cx({ [styles.overlay]: opened }, styles[`overlay--${mode}`])}
     >
       <div className={cx(styles.root, `bg--${mode}`, slideState)}>
-        <div
-          className={cx(styles.drag_down, styles[`drag_down--${mode}`])}
-          onClick={onClose}
-        />
+        <div className={styles.drag_down__area} onClick={onClose}>
+          <div className={cx(styles.drag_down, styles[`drag_down--${mode}`])} />
+        </div>
         <ul className={styles.options}>
           {MenuOptions.map(({ iconUrl, label }) => (
-            <MenuItem key={label} iconUrl={iconUrl}>
+            <MenuItem
+              key={label}
+              className={styles[`__line--${mode}`]}
+              iconUrl={iconUrl}
+            >
               {label}
             </MenuItem>
           ))}

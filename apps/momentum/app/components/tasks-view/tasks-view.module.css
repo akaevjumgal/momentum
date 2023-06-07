@@ -1,15 +1,68 @@
 .root {
-  height: 100%;
+  height: calc(100vh - 14.75rem);
+  overflow-y: auto;
 }
 
-.__line {
+.root::-webkit-scrollbar {
+  width: 0.375rem;
+}
+
+.root--dark::-webkit-scrollbar-thumb {
+  background: var(--color-dark-dimmed);
+  border-radius: 0.188rem;
+}
+
+.root--light::-webkit-scrollbar-thumb {
+  background: var(--color-light-dimmed);
+  border-radius: 0.188rem;
+}
+
+.__task_fieldset {
   padding: 0 1.25rem;
 }
 
-.__line--light {
+.__task_fieldset--light {
   border-bottom: 0.063rem solid var(--color-light-border);
 }
 
-.__line--dark {
+.__task_fieldset--dark {
   border-bottom: 0.063rem solid var(--color-dark-border);
+}
+
+.__line--light {
+  border-top: 0.063rem solid var(--color-light-border);
+}
+
+.__line--dark {
+  border-top: 0.063rem solid var(--color-dark-border);
+}
+
+.__sticky {
+  height: 2.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+
+.__sticky p {
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.__sticky::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background-color: red;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.__sticky.sticky::after {
+  opacity: 1;
 }
