@@ -1,9 +1,9 @@
 .root {
-  height: 22.5rem;
   padding: 1rem;
   border-radius: 1rem 1rem 0 0;
   margin-top: calc(100vh - 22.5rem);
   position: fixed;
+  bottom: 0;
   width: 100%;
 }
 
@@ -53,16 +53,4 @@
 
 .drag_down--light {
   background: var(--color-light-border);
-}
-
-.options {
-  margin: 1.25rem 0;
-}
-
-.__line--light {
-  border-bottom: 0.063rem solid var(--color-light-border);
-}
-
-.__line--dark {
-  border-bottom: 0.063rem solid var(--color-dark-border);
 }

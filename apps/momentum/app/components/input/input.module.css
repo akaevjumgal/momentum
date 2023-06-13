@@ -1,0 +1,22 @@
+.root {
+  background: none;
+  border: none;
+  height: 1.25rem;
+}
+
+.root::placeholder {
+  color: red;
+}
+
+.root:focus,
+.root:visited {
+  outline: none;
+}
+
+.__placeholder--light::placeholder {
+  color: var(--color-light-dimmed);
+}
+
+.__placeholder--dark::placeholder {
+  color: var(--color-dark-dimmed);
+}

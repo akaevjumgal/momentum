@@ -8,9 +8,17 @@
 }
 
 .__primary {
-  width: 3.5rem;
-  height: 3.5rem;
   background: var(--color-primary);
   border-radius: 0.875rem;
   border: transparent;
+}
+
+.__medium {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.__small {
+  width: 2.5rem;
+  height: 2.5rem;
 }

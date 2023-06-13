@@ -1,12 +1,9 @@
-'use client';
-import { TasksView } from './components/tasks-view/tasks-view';
-import { WeekView } from './components/week-view/week-view';
+import ClientPage from './client.page';
+import { Metadata } from 'next';
 
-export default function Page() {
-  return (
-    <div>
-      <WeekView />
-      <TasksView />
-    </div>
-  );
+export const metadata: Metadata = {
+  title: 'Good Morning',
+};
+export default async function Page() {
+  return <ClientPage />;
 }

@@ -1,0 +1,11 @@
+.options {
+  margin: 1.25rem 0;
+}
+
+.__line--light {
+  border-bottom: 0.063rem solid var(--color-light-border);
+}
+
+.__line--dark {
+  border-bottom: 0.063rem solid var(--color-dark-border);
+}

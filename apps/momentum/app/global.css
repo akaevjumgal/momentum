@@ -7,6 +7,10 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+input:focus {
+  outline: none;
+}
+
 :root {
   --base-unit: 16;
 
@@ -29,6 +33,7 @@
   --color-scarlet: #cd5037;
   --color-ocean: #2e72b8;
   --color-uncategorized: #2b2e31;
+  --color-input: #2f3237;
 }
 
 .bg--dark {
