@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { FC } from 'react';
 import { useTheme } from '../../theme';
 import { cx } from '../../utils';
-import { Avatar } from '../avatar/avatar';
+import { Avatar } from '../Avatar/avatar';
 
 import styles from './header.module.css';
 
