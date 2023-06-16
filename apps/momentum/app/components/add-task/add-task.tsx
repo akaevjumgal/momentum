@@ -22,6 +22,8 @@ export const AddTask = () => {
         <DatePicker
           value={day}
           onChange={(selectedDate) => setDay(selectedDate)}
+          minDate={new Date()}
+          showPopperArrow={false}
         />
         <div>
           <IconButton

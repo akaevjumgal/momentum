@@ -1,13 +1,14 @@
 'use client';
 import { forwardRef, InputHTMLAttributes } from 'react';
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker';
-
-import 'react-datepicker/dist/react-datepicker.css';
-import styles from './date-picker.module.css';
 import { cx } from '../../utils';
 import { useTheme } from '../../theme';
 import { date, DateType } from '../../days.utils';
 import Image from 'next/image';
+
+import 'react-datepicker/dist/react-datepicker.css';
+import './date-picker.override.css';
+import styles from './date-picker.module.css';
 
 interface DatePicker extends Omit<ReactDatePickerProps, 'value' | 'onChange'> {
   value: DateType;
@@ -17,7 +18,7 @@ interface DatePicker extends Omit<ReactDatePickerProps, 'value' | 'onChange'> {
 const DatePickerInput = forwardRef<
   HTMLInputElement,
   InputHTMLAttributes<HTMLInputElement>
->(({ value, onClick }, ref) => {
+>(({ value, onClick, onChange }, ref) => {
   const { mode } = useTheme();
 
   return (
@@ -28,6 +29,7 @@ const DatePickerInput = forwardRef<
         ref={ref}
         value={value}
         onClick={onClick}
+        onChange={onChange}
       />
     </div>
   );
@@ -35,11 +37,13 @@ const DatePickerInput = forwardRef<
 DatePickerInput.displayName = 'DatePickerInput';
 
 export const DatePicker = ({
+  className,
   customInput,
   onChange,
   value,
   ...props
 }: DatePicker) => {
+  const { mode } = useTheme();
   const onChangeHandler = (selectedDate: Date | null) => {
     onChange(date(selectedDate));
   };
@@ -50,6 +54,7 @@ export const DatePicker = ({
 
   return (
     <ReactDatePicker
+      calendarClassName={`custom-container--${mode}`}
       value={dateValue}
       customInput={<DatePickerInput />}
       onChange={onChangeHandler}

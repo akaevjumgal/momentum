@@ -1,0 +1,53 @@
+.custom-container--light
+  .react-datepicker__month-container
+  .react-datepicker__header {
+  background-color: var(--color-light-default);
+  border-bottom: 1px solid var(--color-light-border);
+}
+
+.custom-container--dark
+  .react-datepicker__month-container
+  .react-datepicker__header {
+  background-color: var(--color-dark-default);
+  border-bottom: 1px solid var(--color-dark-border);
+}
+
+.custom-container--light {
+  background-color: var(--color-light-default);
+  border: 1px solid var(--color-light-border);
+}
+
+.custom-container--dark {
+  border: 1px solid var(--color-dark-border);
+  background-color: var(--color-dark-default);
+}
+
+.custom-container--light
+  .react-datepicker__month-container
+  .react-datepicker__header
+  .react-datepicker__current-month {
+  color: var(--color-dark-text);
+}
+
+.custom-container--dark
+  .react-datepicker__month-container
+  .react-datepicker__header
+  .react-datepicker__current-month {
+  color: var(--color-light-default);
+}
+
+.custom-container--light
+  .react-datepicker__month-container
+  .react-datepicker__header
+  .react-datepicker__current-month,
+.react-datepicker__day-name {
+  color: var(--color-dark-dimmed);
+}
+
+.custom-container--dark
+  .react-datepicker__month-container
+  .react-datepicker__header
+  .react-datepicker__current-month,
+.react-datepicker__day-name {
+  color: var(--color-light-dimmed);
+}
