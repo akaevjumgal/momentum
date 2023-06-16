@@ -17,6 +17,7 @@ export const Header: FC<HeaderProps> = ({
   title = 'Good morning 👋',
 }) => {
   const { mode } = useTheme();
+
   return (
     <header className={cx(styles.header, `bg--${mode}`)}>
       <Avatar url={avatarUrl} />
