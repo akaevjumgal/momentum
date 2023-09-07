@@ -8,7 +8,7 @@ export type InputVariant = 'outlined';
 
 interface InputProps {
   variant?: InputVariant;
-  label: string;
+  label?: string;
 }
 
 export const Input: FC<InputHTMLAttributes<HTMLInputElement> & InputProps> = ({
