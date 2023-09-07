@@ -2,10 +2,17 @@
   background: none;
   border: none;
   height: 1.25rem;
+  padding: 1rem 0.5rem;
+  border-radius: 0.125rem;
+  width: 100%;
 }
 
-.root::placeholder {
-  color: red;
+.input--light {
+  background: var(--color-light-dimmed);
+}
+
+.input--dark {
+  background: var(--color-input);
 }
 
 .root:focus,
@@ -13,10 +20,10 @@
   outline: none;
 }
 
-.__placeholder--light::placeholder {
-  color: var(--color-light-dimmed);
+.label--light {
+  color: var(--color-dark-default);
 }
 
-.__placeholder--dark::placeholder {
-  color: var(--color-dark-dimmed);
+.label--dark {
+  color: var(--color-light-default);
 }
