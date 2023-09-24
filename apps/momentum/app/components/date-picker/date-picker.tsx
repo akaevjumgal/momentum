@@ -1,14 +1,12 @@
 'use client';
 import { forwardRef, InputHTMLAttributes } from 'react';
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker';
-import { cx } from '../../utils';
 import { useTheme } from '../../theme';
 import { date, DateType } from '../../days.utils';
-import Image from 'next/image';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import './date-picker.override.css';
-import styles from './date-picker.module.css';
+import { cx } from 'utils';
 
 interface DatePicker extends Omit<ReactDatePickerProps, 'value' | 'onChange'> {
   value: DateType;
@@ -19,13 +17,15 @@ const DatePickerInput = forwardRef<
   HTMLInputElement,
   InputHTMLAttributes<HTMLInputElement>
 >(({ value, onClick, onChange }, ref) => {
-  const { mode } = useTheme();
-
+  const inputStyles = cx(
+    `max-w-[8rem] min-w-min flex items-center h-10 rounded-lg px-3`,
+    'text-light-muted bg-light-checkbox dark:text-dark-muted dark:bg-dark-checkbox'
+  );
   return (
-    <div className={cx(styles.input__group, styles[`__input--${mode}`])}>
-      <Image src={`/assets/date-${mode}.svg`} alt="" width={20} height={20} />
+    <div className={inputStyles}>
+      <i className="fa-solid fa-calendar-days fa-md"></i>
       <input
-        className={cx(styles.input, styles[`__text--${mode}`])}
+        className="relative w-full h-full border-none bg-transparent ml-2 font-medium text-xs"
         ref={ref}
         value={value}
         onClick={onClick}
@@ -36,7 +36,7 @@ const DatePickerInput = forwardRef<
 });
 DatePickerInput.displayName = 'DatePickerInput';
 
-export const DatePicker = ({
+const DatePicker = ({
   className,
   customInput,
   onChange,
@@ -54,7 +54,7 @@ export const DatePicker = ({
 
   return (
     <ReactDatePicker
-      calendarClassName={`custom-container--${mode}`}
+      calendarClassName={`custom-container--${mode} shadow-md`}
       value={dateValue}
       customInput={<DatePickerInput />}
       onChange={onChangeHandler}
@@ -62,3 +62,5 @@ export const DatePicker = ({
     />
   );
 };
+
+export { DatePicker };

@@ -1,10 +1,12 @@
 import { PropsWithChildren } from 'react';
-import './global.css';
+import ClientLayout from './client-layout';
 
 export default function MomentumLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ClientLayout>{children}</ClientLayout>
+      </body>
     </html>
   );
 }
