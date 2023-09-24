@@ -1,38 +1,36 @@
 import { useState } from 'react';
-import { useTheme } from '../../theme';
 import { DatePicker } from '../date-picker/date-picker';
-import { IconButton } from '../icon-button/icon-button';
-import { Input } from '../input/input';
 import { date } from '../../days.utils';
 
-import styles from './add-task.module.css';
+import { IconButton, Input } from '@material-tailwind/react';
 
-export const AddTask = () => {
-  const { mode } = useTheme();
+const AddTask = () => {
   const [day, setDay] = useState(date());
 
   return (
-    <div>
+    <div className="p-4">
       <Input
-        style={{ display: 'block', marginBottom: '1.25rem' }}
         placeholder="Write your task"
+        variant="standard"
+        className="dark:!text-white"
         autoFocus
       />
-      <div className={styles.__actions}>
+      <div className="flex items-center justify-between mt-5">
         <DatePicker
           value={day}
           onChange={(selectedDate) => setDay(selectedDate)}
+          selected={day.toDate()}
           minDate={new Date()}
           showPopperArrow={false}
         />
         <div>
-          <IconButton
-            iconUrl={`/assets/send-${mode}.svg`}
-            iconSize={20}
-            size="small"
-          />
+          <IconButton size="lg" className="bg-primary rounded-xl rotate-90">
+            <i className="fa-solid fa-arrow-up fa-xl dark:text-white"></i>
+          </IconButton>
         </div>
       </div>
     </div>
   );
 };
+
+export default AddTask;

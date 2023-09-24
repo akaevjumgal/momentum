@@ -1,13 +1,8 @@
 'use client';
 import { useState } from 'react';
-import { useTheme } from '../../theme';
 import { cx } from '../../utils';
-import { IconButton } from '../icon-button/icon-button';
-import styles from './toolbar.module.css';
-import { BottomMenu } from '../bottom-menu/bottom-menu';
-import { usePathname } from 'next/navigation';
-import { Preferences } from '../preferences/preferences';
-import { AddTask } from '../add-task/add-task';
+import { Button, Drawer, IconButton, Spinner } from '@material-tailwind/react';
+import dynamic from 'next/dynamic';
 
 enum ToolbarActions {
   ADD = 'add',
@@ -15,14 +10,33 @@ enum ToolbarActions {
   DEFAULT = 'default',
 }
 
+const Loader = () => (
+  <div className="p-4 flex items-center justify-center">
+    <Spinner />
+  </div>
+);
+
+const AddTaskComponent = dynamic(
+  () => import('@/components/add-task/add-task'),
+  {
+    loading: Loader,
+  }
+);
+
+const PreferencesComponent = dynamic(
+  () => import('@/components/preferences/preferences'),
+  {
+    loading: Loader,
+  }
+);
+
 const componentByAction: { [key in ToolbarActions]: JSX.Element } = {
-  [ToolbarActions.ADD]: <AddTask />,
-  [ToolbarActions.PREFERENCES]: <Preferences />,
+  [ToolbarActions.ADD]: <AddTaskComponent />,
+  [ToolbarActions.PREFERENCES]: <PreferencesComponent />,
   [ToolbarActions.DEFAULT]: <div></div>, // stub
 };
 
 export const Toolbar = () => {
-  const { mode } = useTheme();
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [action, setAction] = useState(ToolbarActions.DEFAULT);
 
@@ -31,28 +45,47 @@ export const Toolbar = () => {
     setMenuOpen(true);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  const footerStyles = cx(
+    'h-[5.5rem] flex items-center justify-between pr-4 pl-0.5',
+    'border-t border-t-light-dimmed dark:border-t-dark-border dark:bg-dark-default'
+  );
   return (
-    <footer
-      className={cx(styles.root, `bg--${mode}`, styles[`__border--${mode}`])}
-    >
+    <footer className={footerStyles}>
       <div style={{ display: 'flex', columnGap: '0.25rem' }}>
         <IconButton
-          iconUrl="/assets/menu.svg"
-          color="transparent"
           onClick={setToolbarAction(ToolbarActions.PREFERENCES)}
-        />
-        <IconButton iconUrl="/assets/search.svg" color="transparent" />
+          variant="text"
+          size="lg"
+        >
+          <i className="fa-solid fa-bars fa-xl dark:text-dark-muted"></i>
+        </IconButton>
+        <IconButton size="lg" variant="text">
+          <i className="fa-solid fa-magnifying-glass fa-xl dark:text-dark-muted"></i>
+        </IconButton>
       </div>
-
       <div>
         <IconButton
-          iconUrl="/assets/plus.svg"
-          iconSize={24}
+          className="bg-primary rounded-xl"
+          size="lg"
           onClick={setToolbarAction(ToolbarActions.ADD)}
-        />
-        <BottomMenu opened={isMenuOpen} onClose={() => setMenuOpen(false)}>
+        >
+          <i className="fa-solid fa-plus fa-lg dark:text-white" />
+        </IconButton>
+        <Drawer
+          open={isMenuOpen}
+          placement="bottom"
+          onClose={closeMenu}
+          className="dark:bg-dark-default rounded-t-2xl !h-auto"
+        >
+          <Button size="lg" variant="text" fullWidth onClick={closeMenu}>
+            <div className="w-12 h-1 rounded-sm bg-light-dimmed dark:bg-dark-dimmed mx-auto" />
+          </Button>
           {componentByAction[action]}
-        </BottomMenu>
+        </Drawer>
       </div>
     </footer>
   );

@@ -1,19 +1,11 @@
 'use client';
 import { date, getCurrentWeekdays } from '../../days.utils';
-import { useTheme } from '../../theme';
-import { cx } from '../../utils';
 import { DayView } from '../day-view/day-view';
-
-import styles from './week-view.module.css';
 
 export const WeekView = () => {
   const currentWeekdays = getCurrentWeekdays();
-  const { mode } = useTheme();
-
   return (
-    <div
-      className={cx(styles.root, `bg--${mode}`, styles[`__border--${mode}`])}
-    >
+    <div className="h-[4.25rem] flex items-center justify-between px-5 pt-0.5 border-b border-b-light-dimmed dark:border-dark-border">
       {currentWeekdays.map(({ day, weekday, raw }) => (
         <DayView
           key={day}

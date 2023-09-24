@@ -1,39 +1,51 @@
 'use client';
-import { useTheme } from '../../theme';
-import { MenuItem } from '../menu-item/menu-item';
+import {
+  List,
+  ListItem,
+  ListItemPrefix,
+  Switch,
+  Typography,
+} from '@material-tailwind/react';
+import { ChangeEvent, MouseEvent } from 'react';
+import { useTheme } from 'theme';
 
-import styles from './preferences.module.css';
+const Preferences = () => {
+  const { mode, toggle } = useTheme();
+  const listStyles =
+    'dark:text-white dark:active:bg-transparent dark:hover:bg-transparent dark:focus:bg-transparent';
 
-interface MenuOption {
-  iconUrl: string;
-  label: string;
-}
-
-const MenuOptions: MenuOption[] = [
-  {
-    iconUrl: '/assets/menu/statistics.svg',
-    label: 'Statistics',
-  },
-  {
-    iconUrl: '/assets/menu/settings.svg',
-    label: 'Settings',
-  },
-];
-
-export const Preferences = () => {
-  const { mode } = useTheme();
+  const changeTheme = (e: MouseEvent | ChangeEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    toggle();
+  };
 
   return (
-    <ul className={styles.options}>
-      {MenuOptions.map(({ iconUrl, label }) => (
-        <MenuItem
-          key={label}
-          className={styles[`__line--${mode}`]}
-          iconUrl={iconUrl}
-        >
-          {label}
-        </MenuItem>
-      ))}
-    </ul>
+    <List className="my-5">
+      <ListItem className={listStyles} onClick={changeTheme}>
+        <Switch
+          label={mode}
+          value={mode}
+          checked={mode === 'dark'}
+          onChange={changeTheme}
+          labelProps={{
+            className: 'capitalize dark:text-white',
+          }}
+        />
+      </ListItem>
+      <ListItem className={listStyles}>
+        <ListItemPrefix>
+          <i className="fa-solid fa-chart-pie fa-lg"></i>
+        </ListItemPrefix>
+        <Typography>Statistics</Typography>
+      </ListItem>
+      <ListItem className={listStyles}>
+        <ListItemPrefix>
+          <i className="fa-solid fa-gear fa-lg"></i>
+        </ListItemPrefix>
+        <Typography>Settings</Typography>
+      </ListItem>
+    </List>
   );
 };
+
+export default Preferences;

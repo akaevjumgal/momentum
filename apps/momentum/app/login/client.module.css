@@ -4,16 +4,9 @@
   display: flex;
 }
 
-.form__container {
-}
-
 .card__container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 60%;
-}
-
-.my {
-  margin: 0.5rem 0;
 }

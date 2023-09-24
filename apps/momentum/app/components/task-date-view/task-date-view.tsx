@@ -1,8 +1,6 @@
 import { HTMLAttributes } from 'react';
 
-import styles from './task-date.module.css';
 import { cx } from '../../utils';
-import { useTheme } from '../../theme';
 import { DateType, date } from '../../days.utils';
 
 interface TaskDateView extends HTMLAttributes<HTMLParagraphElement> {
@@ -12,13 +10,7 @@ interface TaskDateView extends HTMLAttributes<HTMLParagraphElement> {
 const TODAY = 'Today';
 const TOMORROW = 'Tomorrow';
 
-export const TaskDateView = ({
-  children,
-  className,
-  ...props
-}: TaskDateView) => {
-  const { mode } = useTheme();
-
+const TaskDateView = ({ children, className, ...props }: TaskDateView) => {
   const parsedDate: DateType = date(children);
   const tomorrow = date().add(1, 'day');
 
@@ -34,12 +26,17 @@ export const TaskDateView = ({
 
   return (
     <p
-      className={cx(styles.root, styles[`__text--${mode}`], className)}
+      className={cx(
+        'font-medium text-xs flex items-center text-light-muted dark:text-dark-muted',
+        className
+      )}
       {...props}
     >
       {day}{' '}
-      <span className={cx(styles.__circle, styles[`__circle--${mode}`])} />{' '}
+      <span className="block rounded full mx-2 h-1 w-1 bg-light-muted dark:bg-dark-muted" />{' '}
       {parsedDate.format('dddd')}
     </p>
   );
 };
+
+export { TaskDateView };
