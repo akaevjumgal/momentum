@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { cx } from '../../utils';
+import { cx } from '@/utils/utils';
 import { Button, Drawer, IconButton, Spinner } from '@material-tailwind/react';
 import dynamic from 'next/dynamic';
 

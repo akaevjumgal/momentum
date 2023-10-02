@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { DatePicker } from '../date-picker/date-picker';
-import { date } from '../../days.utils';
+import { date } from '@/utils/days.utils';
 
 import { IconButton, Input } from '@material-tailwind/react';
 

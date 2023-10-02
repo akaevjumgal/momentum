@@ -1,8 +1,10 @@
 'use client';
-import { PropsWithChildren, cache, useState } from 'react';
-import './global.css';
-import { ThemeMode, ThemeModeContext, customTheme } from './theme';
+import { PropsWithChildren, useState } from 'react';
+import { ThemeMode, ThemeModeContext, customTheme } from '@/utils/theme';
 import { ThemeProvider } from '@material-tailwind/react';
+import './global.css';
+import { Header } from '@/components/header/header';
+import { Toolbar } from '@/components/toolbar/toolbar';
 import {
   Hydrate,
   QueryClient,
@@ -10,26 +12,28 @@ import {
   dehydrate,
 } from '@tanstack/react-query';
 
-const getQueryClient = cache(() => new QueryClient());
-
 export default function ClientLayout({ children }: PropsWithChildren) {
+  const [queryClient] = useState(new QueryClient());
+  const dehydratedState = dehydrate(queryClient);
+
   const [mode, setMode] = useState<ThemeMode>('dark');
   const toggle = () => {
     setMode(mode === 'light' ? 'dark' : 'light');
   };
 
-  const queryClient = getQueryClient();
-  const dehydratedState = dehydrate(queryClient);
-
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider value={customTheme}>
-        <Hydrate state={dehydratedState}>
+      <Hydrate state={dehydratedState}>
+        <ThemeProvider value={customTheme}>
           <ThemeModeContext.Provider value={{ mode, setMode, toggle }}>
-            <main className={mode}>{children}</main>
+            <main className={mode}>
+              <Header />
+              {children}
+              <Toolbar />
+            </main>
           </ThemeModeContext.Provider>
-        </Hydrate>
-      </ThemeProvider>
+        </ThemeProvider>
+      </Hydrate>
     </QueryClientProvider>
   );
 }

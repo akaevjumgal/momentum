@@ -1,5 +1,5 @@
 'use client';
-import { date, getCurrentWeekdays } from '../../days.utils';
+import { date, getCurrentWeekdays } from '@/utils/days.utils';
 import { DayView } from '../day-view/day-view';
 
 export const WeekView = () => {

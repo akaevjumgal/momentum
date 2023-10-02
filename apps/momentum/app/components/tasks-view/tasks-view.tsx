@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { useTheme } from '../../theme';
-import { cx } from '../../utils';
+import { useTheme } from '@/utils/theme';
+import { cx } from '@/utils/utils';
 import { TaskDateView } from '../task-date-view/task-date-view';
 
 import styles from './tasks-view.module.css';

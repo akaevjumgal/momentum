@@ -1,8 +1,8 @@
 import { HTMLAttributes, PropsWithChildren } from 'react';
 
 import styles from './label.module.css';
-import { cx } from '../../utils';
-import { useTheme } from '../../theme';
+import { cx } from '../../../utils/utils';
+import { useTheme } from '../../../utils/theme';
 
 export interface LabelProps
   extends PropsWithChildren<HTMLAttributes<HTMLLabelElement>> {
