@@ -3,8 +3,6 @@ import { PropsWithChildren, useState } from 'react';
 import { ThemeMode, ThemeModeContext, customTheme } from '@/utils/theme';
 import { ThemeProvider } from '@material-tailwind/react';
 import './global.css';
-import { Header } from '@/components/header/header';
-import { Toolbar } from '@/components/toolbar/toolbar';
 import {
   Hydrate,
   QueryClient,
@@ -26,11 +24,7 @@ export default function ClientLayout({ children }: PropsWithChildren) {
       <Hydrate state={dehydratedState}>
         <ThemeProvider value={customTheme}>
           <ThemeModeContext.Provider value={{ mode, setMode, toggle }}>
-            <main className={mode}>
-              <Header />
-              {children}
-              <Toolbar />
-            </main>
+            <main className={mode}>{children}</main>
           </ThemeModeContext.Provider>
         </ThemeProvider>
       </Hydrate>
