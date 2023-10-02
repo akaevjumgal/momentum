@@ -6,13 +6,13 @@ import Link from 'next/link';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { object, string } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { cx } from '../utils';
-import { useTheme } from '../theme';
+import { cx } from '@/utils/utils';
+import { useTheme } from '@/utils/theme';
 import { useMutation } from '@tanstack/react-query';
-import { http } from '../http';
+import { http } from '@/utils/http';
 import { AxiosResponse } from 'axios';
 import { useRouter } from 'next/navigation';
-import { useClientSession } from '../lib/client-hooks';
+import { useClientSession } from '@/lib/client-hooks';
 
 type LoginInput = {
   username: string;

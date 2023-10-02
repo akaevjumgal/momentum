@@ -1,8 +1,8 @@
 import { useServerSession } from '@/lib/server-hooks';
-import ClientLoginPage from './client.page';
+import ClientLoginPage from './client-page';
 import { redirect } from 'next/navigation';
 
-export default async function LoginPage() {
+export default function LoginPage() {
   const { isLoggedIn } = useServerSession();
 
   if (isLoggedIn) {

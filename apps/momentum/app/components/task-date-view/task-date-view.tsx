@@ -1,7 +1,7 @@
 import { HTMLAttributes } from 'react';
 
-import { cx } from '../../utils';
-import { DateType, date } from '../../days.utils';
+import { cx } from '@/utils/utils';
+import { DateType, date } from '@/utils/days.utils';
 
 interface TaskDateView extends HTMLAttributes<HTMLParagraphElement> {
   children: string;

@@ -7,7 +7,7 @@ import {
   Typography,
 } from '@material-tailwind/react';
 import { ChangeEvent, MouseEvent } from 'react';
-import { useTheme } from 'theme';
+import { useTheme } from '../../../utils/theme';
 
 const Preferences = () => {
   const { mode, toggle } = useTheme();

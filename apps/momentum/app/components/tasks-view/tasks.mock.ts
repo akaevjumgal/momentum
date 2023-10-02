@@ -1,4 +1,4 @@
-import { date } from 'days.utils';
+import { date } from '@/utils/days.utils';
 
 interface TaskCategory {
   label: string;

@@ -1,12 +1,12 @@
 'use client';
 import { forwardRef, InputHTMLAttributes } from 'react';
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker';
-import { useTheme } from '../../theme';
-import { date, DateType } from '../../days.utils';
+import { useTheme } from '@/utils/theme';
+import { date, DateType } from '@/utils/days.utils';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import './date-picker.override.css';
-import { cx } from 'utils';
+import { cx } from '@/utils/utils';
 
 interface DatePicker extends Omit<ReactDatePickerProps, 'value' | 'onChange'> {
   value: DateType;

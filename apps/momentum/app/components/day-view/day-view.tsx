@@ -1,5 +1,5 @@
-import { TaskDay } from '../../days.utils';
-import { cx } from '../../utils';
+import { TaskDay } from '@/utils/days.utils';
+import { cx } from '@/utils/utils';
 
 interface DayViewProps extends TaskDay {
   active?: boolean;
